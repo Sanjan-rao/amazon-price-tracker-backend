@@ -31,6 +31,8 @@ def fetch_Data():
         with open(f'html_pages/{i}.html', 'w', encoding='utf-8') as f:
             f.write(pg_source)    
         i += 1
+        print("Hi this is from inside of fetch Data function")
+
 
 def scrape_Data ():
     html_files = os.listdir('html_pages')
@@ -44,7 +46,7 @@ def scrape_Data ():
             title = (soup.find(class_='a-size-large product-title-word-break').get_text().strip()).split('(')[0]
             date_time = datetime.now()
             db.price.insert_one({'asin': asin, 'title': title, 'price': price, 'date_time': date_time})
-            
+            print("Hi this is from inside of scrape Data function")
             
        
 
